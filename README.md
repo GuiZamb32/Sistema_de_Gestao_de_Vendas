@@ -26,12 +26,28 @@ O projeto tem como objetivo transformar os requisitos definidos no desafio acad�
 - [x] Criar tabelas no PostgreSQL
 - [x] Criar endpoint de Health Check
 - [x] Testar conexão com o banco
-- [ ] Criar CRUD de Clientes
+
+### Etapa 2 — Gestão de Clientes
+
+- [x] Criar Schema de Cliente
+- [x] Criar Service de Cliente
+- [x] Criar Router de Clientes
+- [x] Implementar cadastro de cliente
+- [x] Implementar listagem de clientes
+- [x] Implementar consulta de cliente
+- [x] Implementar edição de cliente
+- [x] Implementar ativação/desativação
+- [x] Implementar validação de e-mail
+- [x] Implementar tratamento de e-mail duplicado
+- [x] Testar endpoints através do Swagger
+- [x] Confirmar persistência no PostgreSQL
+
+### Próximas funcionalidades
+
 - [ ] Criar CRUD de Produtos
 - [ ] Implementar controle de Estoque
 - [ ] Criar Frontend React + TypeScript
 - [ ] Integrar Frontend e Backend
-
 ---
 
 #  Arquitetura
@@ -256,7 +272,7 @@ e possui a versão:
 
 ---
 
-# ▶ Executando o Backend
+#  Executando o Backend
 
 Com o ambiente virtual ativado:
 
