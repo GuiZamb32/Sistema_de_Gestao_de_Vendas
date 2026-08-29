@@ -5,6 +5,8 @@ from sqlalchemy import text
 from app.database.connection import Base, engine
 from app.models import Cliente, Produto, Estoque
 
+from app.routers.clientes import router as clientes_router
+
 
 app = FastAPI(
     title="Sistema de Gestão de Vendas",
@@ -14,6 +16,7 @@ app = FastAPI(
 
 
 Base.metadata.create_all(bind=engine)
+app.include_router(clientes_router)
 
 
 app.add_middleware(
