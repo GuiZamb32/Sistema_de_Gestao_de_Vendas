@@ -42,10 +42,26 @@ O projeto tem como objetivo transformar os requisitos definidos no desafio acad�
 - [x] Testar endpoints através do Swagger
 - [x] Confirmar persistência no PostgreSQL
 
+### Etapa 3 — Gestão de Produtos
+
+- [x] Criar Schema de Produto
+- [x] Criar Service de Produto
+- [x] Criar Router de Produtos
+- [x] Integrar Router ao FastAPI
+- [x] Implementar cadastro de produto
+- [x] Implementar listagem de produtos
+- [x] Implementar consulta de produto
+- [x] Implementar edição de produto
+- [x] Implementar ativação/desativação
+- [x] Implementar validações com Pydantic
+- [x] Testar endpoints através do Swagger
+- [x] Confirmar persistência no PostgreSQL
+
 ### Próximas funcionalidades
 
-- [ ] Criar CRUD de Produtos
 - [ ] Implementar controle de Estoque
+- [ ] Registrar entradas de estoque
+- [ ] Registrar saídas de estoque
 - [ ] Criar Frontend React + TypeScript
 - [ ] Integrar Frontend e Backend
 ---
