@@ -19,6 +19,10 @@ class ClienteUpdate(BaseModel):
     telefone: str | None = None
 
 
+class ClienteStatusUpdate(BaseModel):
+    ativo: bool
+
+
 class ClienteResponse(ClienteBase):
     id: int
     ativo: bool

@@ -2,7 +2,12 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.database.connection import get_db
-from app.schemas.cliente import ClienteCreate, ClienteResponse, ClienteUpdate
+from app.schemas.cliente import (
+    ClienteCreate,
+    ClienteResponse,
+    ClienteStatusUpdate,
+    ClienteUpdate,
+)
 from app.services import cliente_service
 
 
@@ -95,11 +100,28 @@ def atualizar_cliente(
     "/{cliente_id}/status",
     response_model=ClienteResponse,
 )
+@router.patch(
+    "/{cliente_id}/status",
+    response_model=ClienteResponse,
+)
 def alterar_status(
     cliente_id: int,
-    ativo: bool,
+    dados: ClienteStatusUpdate,
     db: Session = Depends(get_db),
 ):
+    cliente = cliente_service.buscar_cliente(db, cliente_id)
+
+    if cliente is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Cliente não encontrado.",
+        )
+
+    return cliente_service.alterar_status(
+        db,
+        cliente,
+        dados.ativo,
+    )
     cliente = cliente_service.buscar_cliente(db, cliente_id)
 
     if cliente is None:
