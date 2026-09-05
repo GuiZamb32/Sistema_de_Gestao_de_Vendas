@@ -3,11 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
 from app.database.connection import Base, engine
-from app.models import Cliente, Produto, Estoque
+from app.models import Cliente, Produto, Estoque, Venda, ItemVenda
 
 from app.routers.clientes import router as clientes_router
 from app.routers.produtos import router as produtos_router
 from app.routers.estoque import router as estoque_router
+from app.routers.vendas import router as vendas_router
 
 
 app = FastAPI(
@@ -21,6 +22,7 @@ Base.metadata.create_all(bind=engine)
 app.include_router(clientes_router)
 app.include_router(produtos_router)
 app.include_router(estoque_router)
+app.include_router(vendas_router)
 
 
 app.add_middleware(
