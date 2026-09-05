@@ -10,6 +10,8 @@ from app.routers.produtos import router as produtos_router
 from app.routers.estoque import router as estoque_router
 from app.routers.vendas import router as vendas_router
 
+from app.routers.dashboard import router as dashboard_router
+
 
 app = FastAPI(
     title="Sistema de Gestão de Vendas",
@@ -23,6 +25,8 @@ app.include_router(clientes_router)
 app.include_router(produtos_router)
 app.include_router(estoque_router)
 app.include_router(vendas_router)
+
+app.include_router(dashboard_router)
 
 
 app.add_middleware(
