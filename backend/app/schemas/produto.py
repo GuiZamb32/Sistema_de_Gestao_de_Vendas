@@ -26,5 +26,6 @@ class ProdutoResponse(ProdutoBase):
     id: int
     ativo: bool
     criado_em: datetime
+    atualizado_em: datetime
 
     model_config = ConfigDict(from_attributes=True)
