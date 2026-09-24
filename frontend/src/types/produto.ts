@@ -5,6 +5,8 @@ export interface Produto {
   preco: string
   ativo: boolean
   criado_em: string
+  atualizado_em: string
+  estoque_quantidade: number
 }
 
 export interface ProdutoCreate {

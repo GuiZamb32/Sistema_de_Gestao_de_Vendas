@@ -5,9 +5,22 @@ from pydantic import BaseModel, ConfigDict, Field
 
 
 class ProdutoBase(BaseModel):
-    nome: str = Field(..., min_length=2, max_length=150)
-    descricao: str | None = Field(default=None, max_length=500)
-    preco: Decimal = Field(..., gt=0, decimal_places=2)
+    nome: str = Field(
+        ...,
+        min_length=2,
+        max_length=150
+    )
+
+    descricao: str | None = Field(
+        default=None,
+        max_length=500
+    )
+
+    preco: Decimal = Field(
+        ...,
+        gt=0,
+        decimal_places=2
+    )
 
 
 class ProdutoCreate(ProdutoBase):
@@ -27,5 +40,8 @@ class ProdutoResponse(ProdutoBase):
     ativo: bool
     criado_em: datetime
     atualizado_em: datetime
+    estoque_quantidade: int
 
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(
+        from_attributes=True
+    )

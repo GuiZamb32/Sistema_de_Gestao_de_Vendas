@@ -164,36 +164,6 @@
   font-size: 13px;
 }
 
-@media (max-width: 900px) {
-  .produtos-heading {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .produtos-new-button {
-    align-self: flex-start;
-  }
-
-  .produtos-panel {
-    overflow-x: auto;
-  }
-
-  .produtos-table {
-    min-width: 900px;
-  }
-}
-
-@media (max-width: 600px) {
-  .produtos-panel-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .produtos-count {
-    white-space: normal;
-  }
-}
-
 .produtos-actions {
   display: flex;
   align-items: center;
@@ -209,4 +179,74 @@
 
 .produto-edit-button:hover {
   background: #f3f4f6;
+}
+
+/* Estoque */
+
+.produto-estoque-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 90px;
+}
+
+.produto-estoque-wrapper strong {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.produto-estoque {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.produto-estoque.sem-estoque {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.produto-estoque.baixo {
+  background: #fffbeb;
+  color: #b45309;
+}
+
+.produto-estoque.normal {
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+@media (max-width: 900px) {
+  .produtos-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .produtos-new-button {
+    align-self: flex-start;
+  }
+
+  .produtos-panel {
+    overflow-x: auto;
+  }
+
+  .produtos-table {
+    min-width: 1250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .produtos-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .produtos-count {
+    white-space: normal;
+  }
 }

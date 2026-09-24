@@ -25,6 +25,30 @@ function formatarData(data: string) {
   })
 }
 
+function obterClasseEstoque(quantidade: number) {
+  if (quantidade === 0) {
+    return 'produto-estoque sem-estoque'
+  }
+
+  if (quantidade <= 5) {
+    return 'produto-estoque baixo'
+  }
+
+  return 'produto-estoque normal'
+}
+
+function obterTextoEstoque(quantidade: number) {
+  if (quantidade === 0) {
+    return 'Sem estoque'
+  }
+
+  if (quantidade <= 5) {
+    return 'Estoque baixo'
+  }
+
+  return 'Normal'
+}
+
 function Produtos() {
   const [produtos, setProdutos] = useState<Produto[]>([])
   const [carregando, setCarregando] = useState(true)
@@ -174,8 +198,10 @@ function Produtos() {
                   <th>Produto</th>
                   <th>Descrição</th>
                   <th>Preço</th>
+                  <th>Estoque</th>
                   <th>Status</th>
-                  <th>Cadastro</th>
+                  <th>Cadastrado em</th>
+                  <th>Atualizado em</th>
                   <th>Ações</th>
                 </tr>
               </thead>
@@ -197,6 +223,24 @@ function Produtos() {
                     </td>
 
                     <td>
+                      <div className="produto-estoque-wrapper">
+                        <strong>
+                          {produto.estoque_quantidade}
+                        </strong>
+
+                        <span
+                          className={obterClasseEstoque(
+                            produto.estoque_quantidade,
+                          )}
+                        >
+                          {obterTextoEstoque(
+                            produto.estoque_quantidade,
+                          )}
+                        </span>
+                      </div>
+                    </td>
+
+                    <td>
                       <span
                         className={
                           produto.ativo
@@ -212,6 +256,10 @@ function Produtos() {
 
                     <td>
                       {formatarData(produto.criado_em)}
+                    </td>
+
+                    <td>
+                      {formatarData(produto.atualizado_em)}
                     </td>
 
                     <td>
